@@ -46,5 +46,5 @@ jobs:
     - name : Upload
       uses: actions/upload-artifact@v4.3.5
       with:
-        name: cbl
-        path: /home/runner/tc-build/installTmp/
+        name: installTmp
+        path: /home/runner/tc-build/
