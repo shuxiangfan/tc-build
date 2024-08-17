@@ -53,17 +53,17 @@ for f in $(find installTmp -type f -exec file {} \;); do
 		fi
 		# Strip remaining products
 		if [ -n "$(echo $f | grep 'not stripped')" ]; then
-			${stripBin} --strip-unneeded "$i"
+			strip --strip-unneeded "$i"
 		fi
 	elif [ -n "$(echo $f | grep 'ELF .* relocatable')" ]; then
 		if [ -n "$(echo $f | grep 'not stripped')" ]; then
 			i=$(echo $f | awk '{print $1}');
-			${stripBin} --strip-unneeded "${i: : -1}"
+			strip --strip-unneeded "${i: : -1}"
 		fi
 	else
 		if [ -n "$(echo $f | grep 'not stripped')" ]; then
 			i=$(echo $f | awk '{print $1}');
-			${stripBin} --strip-all "${i: : -1}"
+			strip --strip-all "${i: : -1}"
 		fi
 	fi
 done
